@@ -10,12 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('user_interactions', function (Blueprint $table) {
+{
+        Schema::create('interactions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('client_id')->constrained()->onDelete('cascade');
+            $table->enum('tipo_interaccion', ['Llamada', 'Visita', 'WhatsApp']);
+            $table->text('observaciones')->nullable();
+            $table->date('fecha_seguimiento');
             $table->timestamps();
-        });
-    }
+         });
+}
+
 
     /**
      * Reverse the migrations.
