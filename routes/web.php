@@ -1,4 +1,4 @@
-?php
+<?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
     Route::prefix('reportes')->name('reportes.')->group(function () {

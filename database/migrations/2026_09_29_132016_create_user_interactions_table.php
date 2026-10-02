@@ -6,11 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
-{
+    {
         Schema::create('interactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
@@ -18,15 +15,11 @@ return new class extends Migration
             $table->text('observaciones')->nullable();
             $table->date('fecha_seguimiento');
             $table->timestamps();
-         });
-}
+        });
+    }
 
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('user_interactions');
+        Schema::dropIfExists('interactions');
     }
 };
